@@ -2,17 +2,19 @@
 // ______________________________________________________________________________________________________
 var wordBank =["cheetah", "pizza", "mosiac", "prism", "xylophone" ]
 
+
 var randWord = wordBank[Math.floor(Math.random() * wordBank.length)];
 var rightWord = [0];
 var wrongWord = [0];
 var underScore = indexOf[randWord];
-console.log(chosenWord);
+console.log(randWord);
 
 // DOM MANIPULATION
 
 docUnderScore = document.getElementsByClassName("underScore");
 docRightGuess = document.getElementsByClassName("rightGuess");
 docWrongGuess = document.getElementsByClassName("wrongGuess");
+
 
 
 
@@ -46,17 +48,23 @@ console.log("randWord");
 
 document.addEventListener ("keypress", (event) => {
     keyword = String.fromCharCode(event.keyCode);
-    
+
 // IF USER IS CORRECT
     if(randWord.indexOf(keyword) > -1) {
         //ADD TO RIGHT WORDS ARRAY
             rightWord.push(keyword);
+            docUnderScore[0].innerHTML = underScorejoin('')
+            docRightGuest[0].innerHTML = rightWord;
+            
         // REPLACE UNDERSCORE WITH RIGHT LETTER
             underScore[randWord.indexOf(keyword)] = keyword;
         // CHECK TO SEE IF USER WORD MATCHES COMPUTER WORD
             if(underScore.join('') == randWord) {
                 alert('You Win')
             }
+
+// IF USER IS WRONG
+        
     else {
         wrongWord.push(keyword);
 
@@ -79,7 +87,7 @@ document.addEventListener ("keypress", (event) => {
 // console.log(wordBank[i])
 
 
-// window.onload = function computerWord(){
+// window.onload = function randWord(){
 //     for (i = 0 ; i < hiddenWord ; i++){
 //         computerWord[i] = "_"
 //         console.log(computerWord) 
